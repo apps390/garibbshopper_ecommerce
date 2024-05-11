@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+<title>{% block title %} order{% endblock%}</title>
+
+{% block content %}
+<center><h3>ORDER FORM</h3></center>
+<div class="container"  style="width:50%" >
+<form method="POST">
+  {% csrf_token %}
+
+  <div class="form-label">
+    <label for="address"> address</label>
+    <input type="text" class="form-control" id="address" name="adrs" aria-describedby="emailHelp" placeholder="Enter address">
+  </div>
+
+   <div class="form-label">
+    <label for="phoneno">phone no</label>
+    <input type="number" class="form-control" id="phoneno" placeholder="enter phone number" name="phn">
+  </div>
+
+   <div class="form-label">
+    <label for="accno">Account no</label>
+    <input type="number" class="form-control" id="accno" placeholder="enter account number" name="acno">
+  </div>
+
+
+<center>
+  <button type="submit" class="btn btn-primary">Submit</button>
+    </center>
+</form>
+</div>
+
+
+{% endblock %}

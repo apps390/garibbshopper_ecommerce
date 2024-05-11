@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-sm-7">
+            <table class="table table-bordered border-primary">
+                <tr>
+                    <th colspan="6">Cart Item</th>
+                </tr>
+
+                {% for i in c %}
+    <tr>
+        <td><img src="{{ i.product.images.url }}" alt="" height="100px" width="100px"></td>
+        <td><h4 class="text mt-5">{{ i.product.name }}</h4></td>
+        <td>
+            <p>product-ID:{{ i.product.id }}</p>
+            {% if i.product.stock > 0 %}
+                <p style="display:inline;">Quantity: <a href="{% url 'cart:add' i.product.id %}"><i class="fa-solid fa-plus" style="border:1px solid; border-radius:30px;"></i></a>
+            <h5 style="display:inline;" >{{ i.quantity }}</h5>
+            <a href="{% url 'cart:removeqnt' i.product.id %}"><i class="fa-solid fa-minus" style="border:1px solid; border-radius:30px;"></i></a>
+            </p>
+            {% else %}
+               <p style="display:inline;">Quantity:
+            <h5 style="display:inline;" >{{ i.quantity }}</h5>
+            <a href="{% url 'cart:removeqnt' i.product.id %}"><i class="fa-solid fa-minus" style="border:1px solid; border-radius:30px;"></i></a>
+               </p>
+            {% endif %}
+            <p>unit price:{{ i.product.price }}</p>
+        </td>
+
+         <td>
+        <p><strong>subtotal: {{i.quantity}}*{{i.product.price}}={{i.subtotal}}</strong></p>
+         </td>
+        <td>
+                  <a href="{% url 'cart:removeitem' i.product.id %}" class="btn btn-primary">Remove</a>
+
+        </td>
+    </tr>
+                {% endfor %}
+            </table>
+
+                </div>
+        <div class="col-sm-4">
+              <table class="table table-bordered border-primary">
+                <tr>
+                    <th colspan="4">CheckOut</th>
+                </tr>
+                  <tr>
+                      <td><h4>Total amount is {{total}}</h4></td>
+                  </tr>
+            </table>
+            <a href="{% url 'shop:allctg' %}" class="btn btn-primary">Continue Shopping</a>
+            <a href="{% url 'cart:order' %}" class="btn btn-primary" style="position:relative; left">Place Order</a>
+
+
+
+
+              </div>
+
+    </div>
+</div>
+
+
+
+{% endblock %}

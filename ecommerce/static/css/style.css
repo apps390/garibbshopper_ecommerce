@@ -1,0 +1,21 @@
+body
+{
+background-color:  #F1F1F2;
+ font-family: "Ruluko", sans-serif;
+}
+.ruluko-regular {
+  font-family: "Ruluko", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+.navbar
+{
+background-color: #5D5651;
+ font-family: "Ruluko", sans-serif;
+font-size:20px;
+
+}
+.navbar a
+{
+color:blue;
+}

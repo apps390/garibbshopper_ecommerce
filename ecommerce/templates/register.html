@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Registration Form {% endblock %}</title>
+</head>
+
+<body>
+
+{% block content %}
+<center><h3>Registration Form</h3></center>
+<div class="container"  style="width:50%" >
+<form method="POST">
+  {% csrf_token %}
+    <div class="form-label">
+    <label for="name">Username</label>
+    <input type="Text" class="form-control" id="name" placeholder="username" name="username">
+  </div>
+  <div class="form-label">
+    <label for="Password1">Password</label>
+    <input type="password" class="form-control" id="Password1" placeholder="Password" name="password">
+  </div>
+
+  <div class="form-label">
+    <label for="Email1">Email address</label>
+    <input type="email" class="form-control" id="Email1" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+  </div>
+   <div class="form-label">
+    <label for="Fname">First name</label>
+    <input type="Text" class="form-control" id="Fname" placeholder="firstname" name="fname">
+  </div>
+   <div class="form-label">
+    <label for="lname">last name</label>
+    <input type="Text" class="form-control" id="lname" placeholder="lastname" name="lname">
+  </div>
+
+   <div class="form-label">
+    <label for="phoneno">phone no</label>
+    <input type="number" class="form-control" id="phoneno" placeholder="enter phone number" name="phn">
+  </div>
+
+<center>
+  <button type="submit" class="btn btn-primary">Submit</button>
+    </center>
+</form>
+</div>
+{% endblock %}
+</body>
+</html>
